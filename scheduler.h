@@ -23,7 +23,7 @@ class Scheduler {
     static const int maxevents = 10;
     static Event events[Scheduler::maxevents];
 
-    static void poll(unsigned long time);
+    static void poll(unsigned long time=0);
     static void addEvent(unsigned long time, Base::ptr callback, Base *obj);
     static void addEventMilli(unsigned long time, Base::ptr callback, Base *obj);
     static void addEventMicro(unsigned long time, Base::ptr callback, Base *obj);

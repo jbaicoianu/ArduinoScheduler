@@ -1,11 +1,16 @@
-#include <scheduler.h>
+/* Basic example of Arduino Scheduler library
+ * 
+ * Prints "boing!" over serial on 1 second intervals
+ */
 
-Scheduler sched;
+#include <scheduler.h>
 
 class SchedulerBasic : public Base {
   public:
     void boing() {
       Serial.println("boing!");
+
+      // Schedule next interval
       Scheduler::addEvent(1, (Base::ptr) &SchedulerBasic::boing, this);  
     }
 };
@@ -18,6 +23,5 @@ void setup() {
 }
 
 void loop() {
-  unsigned long time = micros();
-  Scheduler::poll(time);
+  Scheduler::poll();
 }

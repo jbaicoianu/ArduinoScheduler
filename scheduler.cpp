@@ -30,6 +30,7 @@ void Event::trigger() {
 Event Scheduler::events[Scheduler::maxevents];
 
 void Scheduler::poll(unsigned long time) {
+  if (time == 0) time = micros();
   for (int i = 0; i < Scheduler::maxevents; i++) {
     if (Scheduler::events[i].active && Scheduler::events[i].time <= time) {
       /*
