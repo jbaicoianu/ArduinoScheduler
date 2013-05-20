@@ -30,4 +30,9 @@ class Scheduler {
     static Event *getUnusedEvent();
 };
 
+/* Macros for cleaner syntax */
+#define SCHEDULER_ADDEVENT(t, classname, funcname, ref) Scheduler::addEvent(t, (Base::ptr) &classname::funcname, ref);
+#define SCHEDULER_ADDEVENTMILLI(t, classname, funcname, ref) Scheduler::addEventMilli(t, (Base::ptr) &classname::funcname, ref);
+#define SCHEDULER_ADDEVENTMICRO(t, classname, funcname, ref) Scheduler::addEventMicro(t, (Base::ptr) &classname::funcname, ref);
+
 #endif
